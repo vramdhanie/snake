@@ -16,14 +16,12 @@
 	"buffers":
 	[
 		{
-			"contents": "package tt.edu.sbcs.snake.test;\n\npublic class Segment {\n	public static void main (String args[]){\n		Segment s = new Segment();\n	}\n}\n",
-			"file": "tt/edu/sbcs/snake/test/Segment.java",
-			"file_size": 65,
-			"file_write_time": 130593184816251808,
+			"file": "src/test/com/vincentramdhanie/snake/SegmentTest.java",
 			"settings":
 			{
-				"buffer_size": 132,
-				"line_ending": "Windows"
+				"buffer_size": 433,
+				"line_ending": "Windows",
+				"name": "package com.vincentramdhanie.snake;"
 			}
 		}
 	],
@@ -67,13 +65,25 @@
 	"expanded_folders":
 	[
 		"/C/Users/student.LAB/Documents/CIS220/snake",
-		"/C/Users/student.LAB/Documents/CIS220/snake/tt/edu",
-		"/C/Users/student.LAB/Documents/CIS220/snake/tt/edu/sbcs",
-		"/C/Users/student.LAB/Documents/CIS220/snake/tt/edu/sbcs/snake",
-		"/C/Users/student.LAB/Documents/CIS220/snake/tt/edu/sbcs/snake/test"
+		"/C/Users/student.LAB/Documents/CIS220/snake/build/classes",
+		"/C/Users/student.LAB/Documents/CIS220/snake/build/classes/main",
+		"/C/Users/student.LAB/Documents/CIS220/snake/build/classes/main/tt",
+		"/C/Users/student.LAB/Documents/CIS220/snake/build/classes/main/tt/edu",
+		"/C/Users/student.LAB/Documents/CIS220/snake/build/classes/main/tt/edu/sbcs",
+		"/C/Users/student.LAB/Documents/CIS220/snake/src",
+		"/C/Users/student.LAB/Documents/CIS220/snake/src/main",
+		"/C/Users/student.LAB/Documents/CIS220/snake/src/main/com/vincentramdhanie",
+		"/C/Users/student.LAB/Documents/CIS220/snake/src/resources",
+		"/C/Users/student.LAB/Documents/CIS220/snake/src/test",
+		"/C/Users/student.LAB/Documents/CIS220/snake/src/test/com",
+		"/C/Users/student.LAB/Documents/CIS220/snake/src/test/com/vincentramdhanie",
+		"/C/Users/student.LAB/Documents/CIS220/snake/src/test/com/vincentramdhanie/snake"
 	],
 	"file_history":
 	[
+		"/C/Users/student.LAB/Documents/CIS220/snake/src/main/tt/edu/sbcs/snake/Game.java",
+		"/C/Users/student.LAB/Documents/CIS220/snake/.gitignore",
+		"/C/Users/student.LAB/Documents/CIS220/snake/tt/edu/sbcs/snake/test/Segment.java",
 		"/C/Users/student.LAB/Documents/CIS220/snake/src/tt/edu/sbcs/snake/Segment.java",
 		"/C/Users/student.LAB/Documents/CIS220/RectangleProject/src/tt/edu/sbcs/cis220/Rectangle.java",
 		"/C/Users/student.LAB/Documents/CIS220/RectangleProject/src/tt/edu/sbcs/cis220/test/RectangleTest.java",
@@ -127,23 +137,24 @@
 			[
 				{
 					"buffer": 0,
-					"file": "tt/edu/sbcs/snake/test/Segment.java",
+					"file": "src/test/com/vincentramdhanie/snake/SegmentTest.java",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 132,
+						"buffer_size": 433,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								71,
-								71
+								433,
+								433
 							]
 						],
 						"settings":
 						{
+							"auto_name": "package com.vincentramdhanie.snake;",
 							"syntax": "Packages/Java/Java.tmLanguage"
 						},
 						"translation.x": 0.0,

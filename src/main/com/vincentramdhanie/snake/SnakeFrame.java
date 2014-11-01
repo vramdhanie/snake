@@ -1,4 +1,4 @@
-package tt.edu.sbcs.snake;
+package com.vincentramdhanie.snake;
 
 import javax.swing.JFrame;
 import java.awt.BorderLayout;
