@@ -1,0 +1,17 @@
+{
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": "."
+		}
+	],
+	"javatar":
+	{
+		"jdk_version":
+		{
+			"use": ""
+		},
+		"source_folder": "C:\\Users\\student.LAB\\Documents\\CIS220\\snake\\src\\main"
+	}
+}

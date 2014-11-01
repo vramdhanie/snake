@@ -1,0 +1,241 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"pr",
+				"println"
+			],
+			[
+				"pu",
+				"public"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "package tt.edu.sbcs.snake.test;\n\npublic class Segment {\n	public static void main (String args[]){\n		Segment s = new Segment();\n	}\n}\n",
+			"file": "tt/edu/sbcs/snake/test/Segment.java",
+			"file_size": 65,
+			"file_write_time": 130593184816251808,
+			"settings":
+			{
+				"buffer_size": 132,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"g",
+				"Git: Quick Add"
+			],
+			[
+				"gadd",
+				"Git: Quick Add"
+			],
+			[
+				"c",
+				"Git: Commit"
+			]
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": true,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/student.LAB/Documents/CIS220/snake",
+		"/C/Users/student.LAB/Documents/CIS220/snake/tt/edu",
+		"/C/Users/student.LAB/Documents/CIS220/snake/tt/edu/sbcs",
+		"/C/Users/student.LAB/Documents/CIS220/snake/tt/edu/sbcs/snake",
+		"/C/Users/student.LAB/Documents/CIS220/snake/tt/edu/sbcs/snake/test"
+	],
+	"file_history":
+	[
+		"/C/Users/student.LAB/Documents/CIS220/snake/src/tt/edu/sbcs/snake/Segment.java",
+		"/C/Users/student.LAB/Documents/CIS220/RectangleProject/src/tt/edu/sbcs/cis220/Rectangle.java",
+		"/C/Users/student.LAB/Documents/CIS220/RectangleProject/src/tt/edu/sbcs/cis220/test/RectangleTest.java",
+		"/C/Users/student.LAB/Documents/CIS220/RectangleProject/.gitignore",
+		"/C/Users/student.LAB/Documents/Sublime Text Build 3065/Data/Packages/SublimeGit/SublimeGit.sublime-settings",
+		"/C/Users/student.LAB/Documents/CIS220/RectangleProject/src/tt/edu/sbcs/cis220/test/RectangleUtilitiesTest.java",
+		"/C/Users/student.LAB/Documents/CIS220/RectangleProject/readme.md",
+		"/C/Users/student.LAB/Documents/CIS220/RectangleProject/src/tt/edu/sbcs/cis220/RectangleUtilities.java",
+		"/C/Users/student.LAB/Documents/CIS220/RectangleProject/src/tt/edu/sbcs/cis220/test/tt/edu/sbcs/cis220/Rectangle.java",
+		"/C/Users/student.LAB/Documents/Sublime Text Build 3065/Data/Packages/User/Preferences.sublime-settings",
+		"/C/Users/student.LAB/Documents/Sublime Text Build 3065/Data/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/student.LAB/Documents/CIS220/DayOne/src/hot/not/MyCoolClass.java",
+		"/C/Users/student.LAB/Documents/CIS220/DayOne/what/hot/not/MyClass.java"
+	],
+	"find":
+	{
+		"height": 31.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"project"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "tt/edu/sbcs/snake/test/Segment.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 132,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								71,
+								71
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 31.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "snake.sublime-project",
+	"replace":
+	{
+		"height": 58.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 249.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
