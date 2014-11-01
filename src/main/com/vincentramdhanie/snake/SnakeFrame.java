@@ -1,4 +1,4 @@
-package com.vincentramdhanie.snake;
+package tt.edu.sbcs.snake;
 
 import javax.swing.JFrame;
 import java.awt.BorderLayout;
@@ -17,6 +17,7 @@ public class SnakeFrame extends JFrame{
 
 		mainPanel = new SnakePanel();
 		add(mainPanel, BorderLayout.CENTER);
+
 
 		setVisible(true);
 	}
