@@ -13,3 +13,7 @@ hs_err_pid*
 
 # ignore build folder
 build
+target
+.idea
+lib
+snake.iml
