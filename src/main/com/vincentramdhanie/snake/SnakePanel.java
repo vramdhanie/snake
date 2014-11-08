@@ -6,17 +6,35 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
 import java.awt.geom.Ellipse2D;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.geom.AffineTransform;
 
 public class SnakePanel extends JPanel{
 
-	Rectangle2D rect;
-	Ellipse2D circle;
+	boolean what;
+	Snake snake;
 
 	public SnakePanel(){
 		super();
 		setBackground(Color.BLACK);
-		rect = new Rectangle2D.Double(20, 20, 300, 150);
-		circle = new Ellipse2D.Double(110, 35, 120, 120); 
+		
+		snake = new Snake();
+
+		Thread t = new Thread(new RepaintLoop());
+		t.start();
+
+		addKeyListener(new KeyAdapter(){
+			public void keyTyped(KeyEvent e){
+				what = !what;
+				if(e.getKeyChar() == KeyEvent.VK_D){
+					AffineTransform af = new AffineTransform();
+					af.rotate(Math.toRadians(90));
+					snake.direction(af);
+				}
+			}
+		});
+
 	}
 
 	@Override
@@ -24,9 +42,23 @@ public class SnakePanel extends JPanel{
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D)g;
 
-		g.setColor(Color.WHITE);
-		g2.fill(rect);
-		g.setColor(Color.RED);
-		g2.fill(circle);
+		snake.draw(g2);
+
+		if(what){
+			g2.drawString("What!", 20, 20);
+		}
+
 	}
+
+	private class RepaintLoop implements Runnable{
+		public void run(){
+			while(true){
+				repaint();
+				try{
+					Thread.sleep(30);
+				}	catch(InterruptedException e){}
+			}
+		}
+	}
+
 }
