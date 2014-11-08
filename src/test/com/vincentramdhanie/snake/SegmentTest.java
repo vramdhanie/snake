@@ -9,7 +9,6 @@ import org.junit.runners.JUnit4;
 
 /**
  * Tests for {@link Segment}.
- *
  * @author vramdhanie@gmail.com (Vincent Ramdhanie)
  */
 public class SegmentTest {
