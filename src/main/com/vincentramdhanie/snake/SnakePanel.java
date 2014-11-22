@@ -24,13 +24,21 @@ public class SnakePanel extends JPanel{
 		Thread t = new Thread(new RepaintLoop());
 		t.start();
 
+		setFocusable(true);
+
 		addKeyListener(new KeyAdapter(){
-			public void keyTyped(KeyEvent e){
+			public void keyPressed(KeyEvent e){
 				what = !what;
-				if(e.getKeyChar() == KeyEvent.VK_D){
-					AffineTransform af = new AffineTransform();
-					af.rotate(Math.toRadians(90));
-					snake.direction(af);
+				
+				if(e.getKeyCode() == KeyEvent.VK_LEFT){
+					snake.left();
+					snake.rotate();
+				    
+				}else{
+					if(e.getKeyCode() == KeyEvent.VK_RIGHT){
+						snake.right();
+						snake.rotate();
+					}
 				}
 			}
 		});
@@ -47,12 +55,6 @@ public class SnakePanel extends JPanel{
 		if(what){
 			g2.drawString("What!", 20, 20);
 		}
-
-		Rectangle2D r = new Rectangle2D.Double(200, 200, 200, 20);
-		g2.fill(r);
-		AffineTransform af = new AffineTransform();
-		af.rotate(Math.toRadians(45), 300, 210);
-		g2.fill(af.createTransformedShape(r));
 	}
 
 	private class RepaintLoop implements Runnable{
