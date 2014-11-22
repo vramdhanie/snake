@@ -18,7 +18,7 @@ public class SnakePanel extends JPanel{
 	public SnakePanel(){
 		super();
 		setBackground(Color.BLACK);
-		
+		  
 		snake = new Snake();
 
 		Thread t = new Thread(new RepaintLoop());
@@ -48,6 +48,11 @@ public class SnakePanel extends JPanel{
 			g2.drawString("What!", 20, 20);
 		}
 
+		Rectangle2D r = new Rectangle2D.Double(200, 200, 200, 20);
+		g2.fill(r);
+		AffineTransform af = new AffineTransform();
+		af.rotate(Math.toRadians(45), 300, 210);
+		g2.fill(af.createTransformedShape(r));
 	}
 
 	private class RepaintLoop implements Runnable{

@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"trans",
+				"transform"
+			],
+			[
+				"Key",
+				"KeyEvent"
+			],
+			[
+				"Graphics",
+				"Graphics2D"
+			],
+			[
 				"pr",
 				"println"
 			],
@@ -19,7 +31,7 @@
 			"file": "src/test/com/vincentramdhanie/snake/SegmentTest.java",
 			"settings":
 			{
-				"buffer_size": 433,
+				"buffer_size": 430,
 				"line_ending": "Windows",
 				"name": "package com.vincentramdhanie.snake;"
 			}
@@ -28,7 +40,7 @@
 			"file": "src/main/com/vincentramdhanie/snake/Game.java",
 			"settings":
 			{
-				"buffer_size": 332,
+				"buffer_size": 930,
 				"line_ending": "Windows"
 			}
 		},
@@ -41,10 +53,29 @@
 			}
 		},
 		{
+			"contents": "package com.vincentramdhanie.snake;\n\nimport javax.swing.JPanel;\nimport java.awt.Color;\nimport java.awt.Graphics;\nimport java.awt.Graphics2D;\nimport java.awt.geom.Rectangle2D;\nimport java.awt.geom.Ellipse2D;\nimport java.awt.event.KeyAdapter;\nimport java.awt.event.KeyEvent;\nimport java.awt.geom.AffineTransform;\n\npublic class SnakePanel extends JPanel{\n\n	boolean what;\n	Snake snake;\n\n	public SnakePanel(){\n		super();\n		setBackground(Color.BLACK);\n		 \n		snake = new Snake();\n\n		Thread t = new Thread(new RepaintLoop());\n		t.start();\n\n		addKeyListener(new KeyAdapter(){\n			public void keyTyped(KeyEvent e){\n				what = !what;\n				if(e.getKeyChar() == KeyEvent.VK_D){\n					AffineTransform af = new AffineTransform();\n					af.rotate(Math.toRadians(90));\n					snake.direction(af);\n				}\n			}\n		});\n\n	}\n\n	@Override\n	protected void paintComponent(Graphics g){		\n		super.paintComponent(g);\n		Graphics2D g2 = (Graphics2D)g;\n\n		snake.draw(g2);\n\n		if(what){\n			g2.drawString(\"What!\", 20, 20);\n		}\n\n	}\n\n	private class RepaintLoop implements Runnable{\n		public void run(){\n			while(true){\n				repaint();\n				try{\n					Thread.sleep(30);\n				}	catch(InterruptedException e){}\n			}\n		}\n	}\n\n}\n",
 			"file": "src/main/com/vincentramdhanie/snake/SnakePanel.java",
+			"file_size": 1237,
+			"file_write_time": 130599410356903383,
 			"settings":
 			{
-				"buffer_size": 196,
+				"buffer_size": 1174,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/main/com/vincentramdhanie/snake/Snake.java",
+			"settings":
+			{
+				"buffer_size": 981,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/main/com/vincentramdhanie/snake/Head.java",
+			"settings":
+			{
+				"buffer_size": 103,
 				"line_ending": "Windows"
 			}
 		},
@@ -52,7 +83,7 @@
 			"file": "src/main/com/vincentramdhanie/snake/Segment.java",
 			"settings":
 			{
-				"buffer_size": 208,
+				"buffer_size": 1189,
 				"line_ending": "Windows"
 			}
 		},
@@ -120,7 +151,6 @@
 		"/C/Users/student.LAB/Documents/CIS220/snake/src/main/com/vincentramdhanie",
 		"/C/Users/student.LAB/Documents/CIS220/snake/src/main/com/vincentramdhanie/snake",
 		"/C/Users/student.LAB/Documents/CIS220/snake/src/resources",
-		"/C/Users/student.LAB/Documents/CIS220/snake/src/test",
 		"/C/Users/student.LAB/Documents/CIS220/snake/src/test/com",
 		"/C/Users/student.LAB/Documents/CIS220/snake/src/test/com/vincentramdhanie",
 		"/C/Users/student.LAB/Documents/CIS220/snake/src/test/com/vincentramdhanie/snake"
@@ -178,7 +208,7 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -187,15 +217,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 433,
+						"buffer_size": 430,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								238,
-								286
+								427,
+								427
 							]
 						],
 						"settings":
@@ -207,7 +237,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
@@ -216,15 +246,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 332,
+						"buffer_size": 930,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								332,
-								332
+								169,
+								169
 							]
 						],
 						"settings":
@@ -232,10 +262,10 @@
 							"syntax": "Packages/Java/Java.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 16.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -251,14 +281,98 @@
 						"selection":
 						[
 							[
-								28,
-								28
+								487,
+								487
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Java/Java.tmLanguage",
 							"translate_tabs_to_spaces": false
+						},
+						"translation.x": -0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/main/com/vincentramdhanie/snake/SnakePanel.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1174,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								449,
+								449
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 483.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/main/com/vincentramdhanie/snake/Snake.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 981,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								788,
+								788
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/main/com/vincentramdhanie/snake/Head.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 103,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								98,
+								98
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -268,48 +382,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "src/main/com/vincentramdhanie/snake/SnakePanel.java",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 196,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								28,
-								28
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Java/Java.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
+					"buffer": 6,
 					"file": "src/main/com/vincentramdhanie/snake/Segment.java",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 208,
+						"buffer_size": 1189,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								28,
-								28
+								1135,
+								1135
 							]
 						],
 						"settings":
@@ -317,14 +403,14 @@
 							"syntax": "Packages/Java/Java.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 414.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 7,
 					"file": "build.gradle",
 					"semi_transient": false,
 					"settings":
@@ -336,8 +422,8 @@
 						"selection":
 						[
 							[
-								281,
-								282
+								226,
+								226
 							]
 						],
 						"settings":
@@ -350,11 +436,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 8,
 					"file": "gradle.properties",
 					"semi_transient": false,
 					"settings":
@@ -379,7 +465,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 8,
 					"type": "text"
 				}
 			]
@@ -462,7 +548,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 249.0,
+	"side_bar_width": 186.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
