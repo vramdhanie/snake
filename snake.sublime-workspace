@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"tran",
+				"translate"
+			],
+			[
+				"Re",
+				"Rectangle2D"
+			],
+			[
 				"trans",
 				"transform"
 			],
@@ -37,6 +45,14 @@
 			}
 		},
 		{
+			"file": ".gitignore",
+			"settings":
+			{
+				"buffer_size": 245,
+				"line_ending": "Windows"
+			}
+		},
+		{
 			"file": "src/main/com/vincentramdhanie/snake/Game.java",
 			"settings":
 			{
@@ -53,13 +69,13 @@
 			}
 		},
 		{
-			"contents": "package com.vincentramdhanie.snake;\n\nimport javax.swing.JPanel;\nimport java.awt.Color;\nimport java.awt.Graphics;\nimport java.awt.Graphics2D;\nimport java.awt.geom.Rectangle2D;\nimport java.awt.geom.Ellipse2D;\nimport java.awt.event.KeyAdapter;\nimport java.awt.event.KeyEvent;\nimport java.awt.geom.AffineTransform;\n\npublic class SnakePanel extends JPanel{\n\n	boolean what;\n	Snake snake;\n\n	public SnakePanel(){\n		super();\n		setBackground(Color.BLACK);\n		 \n		snake = new Snake();\n\n		Thread t = new Thread(new RepaintLoop());\n		t.start();\n\n		addKeyListener(new KeyAdapter(){\n			public void keyTyped(KeyEvent e){\n				what = !what;\n				if(e.getKeyChar() == KeyEvent.VK_D){\n					AffineTransform af = new AffineTransform();\n					af.rotate(Math.toRadians(90));\n					snake.direction(af);\n				}\n			}\n		});\n\n	}\n\n	@Override\n	protected void paintComponent(Graphics g){		\n		super.paintComponent(g);\n		Graphics2D g2 = (Graphics2D)g;\n\n		snake.draw(g2);\n\n		if(what){\n			g2.drawString(\"What!\", 20, 20);\n		}\n\n	}\n\n	private class RepaintLoop implements Runnable{\n		public void run(){\n			while(true){\n				repaint();\n				try{\n					Thread.sleep(30);\n				}	catch(InterruptedException e){}\n			}\n		}\n	}\n\n}\n",
+			"contents": "package com.vincentramdhanie.snake;\n\nimport javax.swing.JPanel;\nimport java.awt.Color;\nimport java.awt.Graphics;\nimport java.awt.Graphics2D;\nimport java.awt.geom.Rectangle2D;\nimport java.awt.geom.Ellipse2D;\nimport java.awt.event.KeyAdapter;\nimport java.awt.event.KeyEvent;\nimport java.awt.geom.AffineTransform;\n\npublic class SnakePanel extends JPanel{\n\n	boolean what;\n	Snake snake;\n\n	public SnakePanel(){\n		super();\n		setBackground(Color.BLACK);\n		  \n		snake = new Snake();\n\n		Thread t = new Thread(new RepaintLoop());\n		t.start();\n\n		setFocusable(true);\n\n		addKeyListener(new KeyAdapter(){\n			public void keyPressed(KeyEvent e){\n				what = !what;\n				\n				if(e.getKeyCode() == KeyEvent.VK_LEFT){\n					snake.left();\n					snake.rotate();\n				    \n				}else{\n					if(e.getKeyCode() == KeyEvent.VK_RIGHT){\n						snake.right();\n						snake.rotate();\n					}\n				}\n			}\n		});\n\n	}\n\n	@Override\n	protected void paintComponent(Graphics g){		\n		super.paintComponent(g);\n		Graphics2D g2 = (Graphics2D)g;\n\n		snake.draw(g2);\n\n		\n	}\n\n	private class RepaintLoop implements Runnable{\n		public void run(){\n			while(true){\n				repaint();\n				try{\n					Thread.sleep(40);\n				}	catch(InterruptedException e){}\n			}\n		}\n	}\n\n}\n",
 			"file": "src/main/com/vincentramdhanie/snake/SnakePanel.java",
-			"file_size": 1237,
-			"file_write_time": 130599410356903383,
+			"file_size": 1323,
+			"file_write_time": 130617369657283637,
 			"settings":
 			{
-				"buffer_size": 1174,
+				"buffer_size": 1204,
 				"line_ending": "Windows"
 			}
 		},
@@ -67,7 +83,7 @@
 			"file": "src/main/com/vincentramdhanie/snake/Snake.java",
 			"settings":
 			{
-				"buffer_size": 981,
+				"buffer_size": 1752,
 				"line_ending": "Windows"
 			}
 		},
@@ -80,10 +96,13 @@
 			}
 		},
 		{
+			"contents": "package com.vincentramdhanie.snake;\n\nimport java.awt.Shape;\nimport java.awt.geom.Rectangle2D;\nimport java.awt.geom.AffineTransform;\nimport java.awt.geom.NoninvertibleTransformException;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.awt.Color;\nimport java.awt.Graphics2D;\n\n/**\n * A segment of a snake. A collection of Segments\n * make up the body of the snake.\n * @author vramdhanie@gmail.com (Vincent Ramdhanie)\n */\npublic class Segment {\n	Shape shape;\n	List<AffineTransform> transforms;\n\n	public Segment(){\n		shape = new Rectangle2D.Double(500, 100, 10, 3);\n		transforms = new ArrayList<AffineTransform>();\n	}\n\n	public void addTransform(AffineTransform af){\n		transforms.add(af);\n	}\n\n	public void move(){\n		\n	}\n\n	public void draw(Graphics2D g){\n		g.setColor(Color.GREEN);\n		\n		if(!transforms.isEmpty()){\n			\n			shape = transforms.get(0).createTransformedShape(shape);\n			transforms.remove(0);\n		}\n		\n		g.fill(shape);\n		\n		\n	}\n\n	public Shape getShape(){\n		return shape;\n	}\n\n\n}\n",
 			"file": "src/main/com/vincentramdhanie/snake/Segment.java",
+			"file_size": 1246,
+			"file_write_time": 130599407278065481,
 			"settings":
 			{
-				"buffer_size": 1189,
+				"buffer_size": 994,
 				"line_ending": "Windows"
 			}
 		},
@@ -151,6 +170,7 @@
 		"/C/Users/student.LAB/Documents/CIS220/snake/src/main/com/vincentramdhanie",
 		"/C/Users/student.LAB/Documents/CIS220/snake/src/main/com/vincentramdhanie/snake",
 		"/C/Users/student.LAB/Documents/CIS220/snake/src/resources",
+		"/C/Users/student.LAB/Documents/CIS220/snake/src/test",
 		"/C/Users/student.LAB/Documents/CIS220/snake/src/test/com",
 		"/C/Users/student.LAB/Documents/CIS220/snake/src/test/com/vincentramdhanie",
 		"/C/Users/student.LAB/Documents/CIS220/snake/src/test/com/vincentramdhanie/snake"
@@ -208,7 +228,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -224,8 +244,8 @@
 						"selection":
 						[
 							[
-								427,
-								427
+								420,
+								420
 							]
 						],
 						"settings":
@@ -237,11 +257,39 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
+					"file": ".gitignore",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 245,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
 					"file": "src/main/com/vincentramdhanie/snake/Game.java",
 					"semi_transient": false,
 					"settings":
@@ -253,8 +301,8 @@
 						"selection":
 						[
 							[
-								169,
-								169
+								389,
+								389
 							]
 						],
 						"settings":
@@ -262,14 +310,14 @@
 							"syntax": "Packages/Java/Java.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 16.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 3,
 					"file": "src/main/com/vincentramdhanie/snake/SnakeFrame.java",
 					"semi_transient": false,
 					"settings":
@@ -281,8 +329,8 @@
 						"selection":
 						[
 							[
-								487,
-								487
+								441,
+								460
 							]
 						],
 						"settings":
@@ -290,36 +338,8 @@
 							"syntax": "Packages/Java/Java.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": -0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "src/main/com/vincentramdhanie/snake/SnakePanel.java",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1174,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								449,
-								449
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Java/Java.tmLanguage"
-						},
 						"translation.x": 0.0,
-						"translation.y": 483.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -327,19 +347,19 @@
 				},
 				{
 					"buffer": 4,
-					"file": "src/main/com/vincentramdhanie/snake/Snake.java",
+					"file": "src/main/com/vincentramdhanie/snake/SnakePanel.java",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 981,
+						"buffer_size": 1204,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								788,
-								788
+								445,
+								445
 							]
 						],
 						"settings":
@@ -347,14 +367,42 @@
 							"syntax": "Packages/Java/Java.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 207.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/main/com/vincentramdhanie/snake/Snake.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1752,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1692,
+								1691
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1219.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 6,
 					"file": "src/main/com/vincentramdhanie/snake/Head.java",
 					"semi_transient": false,
 					"settings":
@@ -382,20 +430,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 7,
 					"file": "src/main/com/vincentramdhanie/snake/Segment.java",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1189,
+						"buffer_size": 994,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1135,
-								1135
+								821,
+								821
 							]
 						],
 						"settings":
@@ -403,14 +451,14 @@
 							"syntax": "Packages/Java/Java.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 414.0,
+						"translation.y": 276.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 8,
 					"file": "build.gradle",
 					"semi_transient": false,
 					"settings":
@@ -436,11 +484,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 9,
 					"file": "gradle.properties",
 					"semi_transient": false,
 					"settings":
@@ -465,7 +513,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 9,
 					"type": "text"
 				}
 			]

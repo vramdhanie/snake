@@ -33,19 +33,15 @@ public class Segment {
 
 	public void draw(Graphics2D g){
 		g.setColor(Color.GREEN);
-		AffineTransform af = new AffineTransform();
+		
 		if(!transforms.isEmpty()){
-			//af.concatenate(transforms.get(0));
+			
 			shape = transforms.get(0).createTransformedShape(shape);
 			transforms.remove(0);
 		}
-		//g.transform(af);
+		
 		g.fill(shape);
-		//try{
-		//	g.transform(af.createInverse());
-		//}catch(NoninvertibleTransformException e){
-
-		//}
+		
 		
 	}
 

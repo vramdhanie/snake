@@ -52,9 +52,7 @@ public class SnakePanel extends JPanel{
 
 		snake.draw(g2);
 
-		if(what){
-			g2.drawString("What!", 20, 20);
-		}
+		
 	}
 
 	private class RepaintLoop implements Runnable{
@@ -62,7 +60,7 @@ public class SnakePanel extends JPanel{
 			while(true){
 				repaint();
 				try{
-					Thread.sleep(30);
+					Thread.sleep(40);
 				}	catch(InterruptedException e){}
 			}
 		}
