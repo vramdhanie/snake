@@ -24,6 +24,8 @@ public class ScorePanel extends JPanel{
 		add(lblHighScoreLabel);
 		add(lblHighScore);
 
-		setBackground(Color.CYAN);
+		setBackground(Color.BLACK);
+		setForeground(Color.WHITE);
+		
 	}
 }

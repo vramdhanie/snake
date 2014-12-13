@@ -9,10 +9,11 @@ import java.awt.geom.Ellipse2D;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.geom.AffineTransform;
+import javax.swing.JOptionPane;
 
 public class SnakePanel extends JPanel{
-
-	boolean what;
+	public static final int REPAINT_INTERVAL = 30;
+	
 	Snake snake;
 
 	public SnakePanel(){
@@ -26,41 +27,43 @@ public class SnakePanel extends JPanel{
 
 		setFocusable(true);
 
-		addKeyListener(new KeyAdapter(){
-			public void keyPressed(KeyEvent e){
-				what = !what;
-				
-				if(e.getKeyCode() == KeyEvent.VK_LEFT){
-					snake.left();
-					snake.rotate();
-				    
-				}else{
-					if(e.getKeyCode() == KeyEvent.VK_RIGHT){
-						snake.right();
-						snake.rotate();
-					}
-				}
-			}
-		});
-
 	}
 
+	public void startAnimation(){
+		//code to start the animation
+		//You can write your code here to
+		//start up the animation loop
+		JOptionPane.showMessageDialog(null, "Starting Game");
+	}
+
+	public void stopAnimation(){
+		//code to stop the animation
+	}
+
+
+	/**
+	 * Override the paintComponent method to 
+	 * perform custom drawing
+	 */
 	@Override
 	protected void paintComponent(Graphics g){		
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D)g;
 
-		snake.draw(g2);
+		snake.draw(g2); //the Snake knows how to draw itself
 
 		
 	}
 
+	/**
+	 * This runs the thread that repaints periodically
+	 */
 	private class RepaintLoop implements Runnable{
 		public void run(){
 			while(true){
 				repaint();
 				try{
-					Thread.sleep(40);
+					Thread.sleep(REPAINT_INTERVAL);
 				}	catch(InterruptedException e){}
 			}
 		}

@@ -19,16 +19,12 @@ public class Segment {
 	List<AffineTransform> transforms;
 
 	public Segment(){
-		shape = new Rectangle2D.Double(500, 100, 10, 3);
+		shape = new Rectangle2D.Double(50, 100, 10, 3);
 		transforms = new ArrayList<AffineTransform>();
 	}
 
 	public void addTransform(AffineTransform af){
 		transforms.add(af);
-	}
-
-	public void move(){
-		
 	}
 
 	public void draw(Graphics2D g){
@@ -41,8 +37,7 @@ public class Segment {
 		}
 		
 		g.fill(shape);
-		
-		
+			
 	}
 
 	public Shape getShape(){

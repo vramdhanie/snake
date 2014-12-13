@@ -6,39 +6,17 @@ import java.util.ArrayList;
 import java.awt.Graphics2D;
 
 public class Snake{
+	public static final int SNAKE_SPEED = 30;
 	List<Segment> segments;
 	Head head;
-	
-	int direction;
-
 
 	public Snake(){
 		segments = new ArrayList<Segment>();
 		head = new Head();
 		segments.add(head);
-		direction = 3;
+		
 		Thread t = new Thread(new MoveSnake());
 		t.start();
-	}
-
-	public void left(){
-		direction = ++direction % 4;
-	}
-
-	public void right(){
-		direction = Math.abs(--direction) % 4;
-	}
-
-	public void direction(AffineTransform af){
-		for(Segment s: segments){
-			s.addTransform(af);
-		}
-	}
-
-	public void rotate(){
-		AffineTransform af = new AffineTransform();
-		af.rotate(Math.toRadians(90), head.getShape().getBounds2D().getX(), head.getShape().getBounds2D().getY());
-		direction(af);
 	}
 
 	public void draw(Graphics2D g){
@@ -49,27 +27,12 @@ public class Snake{
 
 	public void move(){
 		AffineTransform trans = new AffineTransform();
-		switch(direction){
-			case 0: trans.translate(0, -5);break;
-			case 1: trans.translate(-5, 0);break;
-			case 2: trans.translate(0, 5);break;
-			case 3: trans.translate(5, 0);break;
-		}
-		
-		if(head.getShape().getBounds2D().getX() <= 0){
-			trans.translate(600, 0);
-		}
-		if(head.getShape().getBounds2D().getX() > 600){
-			trans.translate(-600, 0);
+		trans.translate(5, 0);
+	
+		if(head.getShape().getBounds2D().getX() > SnakeFrame.WINDOW_WIDTH){
+			trans.translate(-SnakeFrame.WINDOW_WIDTH, 0);
 		}
 
-		if(head.getShape().getBounds2D().getY() <= 0){
-			trans.translate(0, 400);
-		}
-
-		if(head.getShape().getBounds2D().getY() > 400){
-			trans.translate(0, -400);
-		}
 		for(Segment s: segments){
 			s.addTransform(trans);
 		}
@@ -81,7 +44,7 @@ public class Snake{
 			while(true){
 				move();
 				try{
-					Thread.sleep(30);
+					Thread.sleep(SNAKE_SPEED);
 				}catch(InterruptedException e){
 
 				}

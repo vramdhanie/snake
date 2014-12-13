@@ -11,18 +11,21 @@ public class SnakeFrame extends JFrame{
 
 	private SnakePanel mainPanel;
 	private JPanel sidePanel;
+
+	private SnakeController controller;
 	
 	public SnakeFrame(){
 		super("Snake");
 		setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		sidePanel = new SidePanel();
-		add(sidePanel, BorderLayout.EAST);
-
 		mainPanel = new SnakePanel();
 		add(mainPanel, BorderLayout.CENTER);
 
+		controller = new SnakeController(mainPanel);
+
+		sidePanel = new SidePanel(controller);
+		add(sidePanel, BorderLayout.EAST);
 
 		setVisible(true);
 	}
