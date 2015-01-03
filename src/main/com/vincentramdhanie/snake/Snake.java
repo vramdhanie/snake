@@ -6,7 +6,8 @@ import java.util.ArrayList;
 import java.awt.Graphics2D;
 
 public class Snake{
-	public static final int SNAKE_SPEED = 30;
+
+	public static final int SNAKE_SPEED = 31;
 	List<Segment> segments;
 	Head head;
 

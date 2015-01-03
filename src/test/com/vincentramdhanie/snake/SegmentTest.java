@@ -19,4 +19,8 @@ public class SegmentTest {
     	assertEquals(2, 2);
     }
 
+     @Test public void sample() {
+        assertEquals("Gradle is gr8", "Gradle is gr8");
+    }
+
 }
