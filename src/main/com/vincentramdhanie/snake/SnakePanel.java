@@ -14,13 +14,15 @@ import javax.swing.JOptionPane;
 public class SnakePanel extends JPanel{
 	public static final int REPAINT_INTERVAL = 30;
 	
-	Snake snake;
+	//Snake snake; --moved to SnakeController
+
+	SnakeController controller;
 
 	public SnakePanel(){
 		super();
 		setBackground(Color.BLACK);
 		  
-		snake = new Snake();
+		//snake = new Snake(); --moved to SnakeController
 
 		Thread t = new Thread(new RepaintLoop());
 		t.start();
@@ -28,6 +30,15 @@ public class SnakePanel extends JPanel{
 		setFocusable(true);
 
 	}
+
+	public SnakeController getController(){
+		return controller;
+	}
+
+	public void setController(SnakeController controller){
+		this.controller = controller;
+	}
+
 
 	public void startAnimation(){
 		//code to start the animation
@@ -50,7 +61,7 @@ public class SnakePanel extends JPanel{
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D)g;
 
-		snake.draw(g2); //the Snake knows how to draw itself
+		controller.draw(g2); //the controller knows how to draw the snake
 
 		
 	}

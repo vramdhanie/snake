@@ -1,8 +1,11 @@
 package com.vincentramdhanie.snake;
 
+import java.awt.Graphics2D;
+
 public class SnakeController{
 
 	SnakePanel snakePanel;
+	Snake snake;
 
 	public SnakeController(){
 
@@ -10,6 +13,8 @@ public class SnakeController{
 
 	public SnakeController(SnakePanel snakePanel){
 		this.snakePanel = snakePanel;
+		snake = new Snake();
+		snakePanel.setController(this);
 	}
 
 	public void start(){
@@ -23,5 +28,9 @@ public class SnakeController{
 
 	public void reset(){
 		//code to reset the game
+	}
+
+	public void draw(Graphics2D g){
+		snake.draw(g);
 	}
 }
